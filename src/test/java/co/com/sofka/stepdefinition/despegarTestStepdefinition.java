@@ -3,17 +3,20 @@ package co.com.sofka.stepdefinition;
 
 import co.com.sofka.model.DespegarModel;
 import co.com.sofka.page.DespegarPage;
+import co.com.sofka.runner.DespegarCucumber;
 import co.com.sofka.setup.WebUI;
 import co.com.sofka.util.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 
 
 public class despegarTestStepdefinition extends WebUI {
 
     private DespegarModel cliente;
+    private static final Logger LOGGER = Logger.getLogger(DespegarCucumber.class);
 
     //Scenario 1
     @Given("el cliente se encuentra en la pagina principal")
@@ -21,8 +24,10 @@ public class despegarTestStepdefinition extends WebUI {
         try {
             generalSetup();
             generateClient();
+            LOGGER.info("Se organiza la pagina principal y el cliente");
         } catch (Exception exception) {
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.error("Problema en el Give");
             quitDrive();
         }
     }
@@ -31,8 +36,10 @@ public class despegarTestStepdefinition extends WebUI {
         DespegarPage despegarPage = new DespegarPage(cliente, super.driver);
         try {
             despegarPage.flyIdaFields();
+            LOGGER.info("Se escoge la configuracion ");
         } catch (Exception exception) {
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.error("Problema en el primer when");
             quitDrive();
         }
     }
@@ -42,8 +49,10 @@ public class despegarTestStepdefinition extends WebUI {
         try {
             despegarPage.escogerVuelo();
             despegarPage.fillInformation();
+            LOGGER.info("Se escoge vuelo y se llena la informacion ");
         } catch (Exception exception) {
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.error("Problema en el segundo when");
             quitDrive();
         }
     }
@@ -54,10 +63,11 @@ public class despegarTestStepdefinition extends WebUI {
             Assertions.assertEquals("Juan Ivan",despegarPage.checkName());
             Assertions.assertEquals("Gomez Hoyos",despegarPage.checkLastname());
             Assertions.assertEquals("14566546723",despegarPage.checkId());
-
+            LOGGER.info("Se prueba si se realizo correctamente la incripcion");
             quitDrive();
         } catch (Exception exception) {
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.error("Problema en el then");
             quitDrive();
         }
     }
@@ -69,8 +79,10 @@ public class despegarTestStepdefinition extends WebUI {
         try {
             generalSetup();
             generateClient();
+            LOGGER.info("Se organiza la pagina principal y el cliente");
         } catch (Exception exception) {
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.error("Problema en el Give");
             quitDrive();
         }
     }
@@ -79,8 +91,10 @@ public class despegarTestStepdefinition extends WebUI {
         DespegarPage despegarPage = new DespegarPage(cliente, super.driver);
         try {
             despegarPage.flyIdaYVueltaFields();
+            LOGGER.info("Se escoge la configuracion ");
         } catch (Exception exception) {
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.error("Problema en el primer when");
             quitDrive();
         }
     }
@@ -90,8 +104,10 @@ public class despegarTestStepdefinition extends WebUI {
         try {
             despegarPage.escogerVuelo();
             despegarPage.fillInformation();
+            LOGGER.info("Se escoge vuelo y se llena la informacion ");
         } catch (Exception exception) {
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.error("Problema en el segundo when");
             quitDrive();
         }
     }
@@ -102,10 +118,11 @@ public class despegarTestStepdefinition extends WebUI {
             Assertions.assertEquals("Juan Ivan",despegarPage.checkName());
             Assertions.assertEquals("Gomez Hoyos",despegarPage.checkLastname());
             Assertions.assertEquals("14566546723",despegarPage.checkId());
-
+            LOGGER.info("Se prueba si se realizo correctamente la incripcion");
             quitDrive();
         } catch (Exception exception) {
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.error("Problema en el then");
             quitDrive();
         }
     }

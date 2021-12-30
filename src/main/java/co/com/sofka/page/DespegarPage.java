@@ -2,6 +2,9 @@ package co.com.sofka.page;
 
 import co.com.sofka.model.DespegarModel;
 import co.com.sofka.page.common.CommonActionOnPages;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.core.config.plugins.util.ResolverUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -10,6 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 public class DespegarPage extends CommonActionOnPages {
 
     private final DespegarModel despegarModel;
+    public static Log log= LogFactory.getLog(ResolverUtil.Test.class);
 
     //Constructor
     public DespegarPage(DespegarModel despegarModel, WebDriver webDriver) {
@@ -121,13 +125,14 @@ public class DespegarPage extends CommonActionOnPages {
             click(flechaCambioFecha);
         }
         click(dayToGoLocator);
+        log.info("Primera fecha");
 
         for (int i = 0; i <= Integer.parseInt(despegarModel.getFirstMonth())-Integer.parseInt(despegarModel.getLastMonth()); i++) {
             click(flechaCambioFecha);
         }
         click(dayToBackLocator);
-
         click(searchButtonLocator);
+        log.info("Segunda fecha");
     }
 
     //General Scenario
@@ -141,6 +146,8 @@ public class DespegarPage extends CommonActionOnPages {
         if (isElementPresent(equipajePageLocator)) {
             waitToBeClickable(continueButtonLocator);
             click(continueButtonLocator);
+        }else{
+            log.info("No se necesita escoger tipo de equipaje");
         }
     }
     public void fillInformation() {
@@ -180,12 +187,18 @@ public class DespegarPage extends CommonActionOnPages {
             typeInto(birthDayLocator, despegarModel.getBirthday());
             typeInto(birthMonthLocator, despegarModel.getBirthMont());
             typeInto(birthYearLocator, despegarModel.getBirthYear());
+        }else{
+            log.info("No se encontro el campo de fecha de nacimiento");
         }
         if(isElementPresent(genderFemaleLocator) && despegarModel.getGender().getValue().equals("Female")){
             click(genderFemaleLocator);
+        }else{
+            log.info("No se encontro el campo de genero HOMBRE");
         }
         if(isElementPresent(genderMaleLocator) && despegarModel.getGender().getValue().equals("Male")){
             click(genderMaleLocator);
+        }else{
+            log.info("No se encontro el campo de genero HOMBRE");
         }
         typeInto(emailLocator,despegarModel.getEmail());
         typeInto(confirmationEmailLocator,despegarModel.getEmail());
