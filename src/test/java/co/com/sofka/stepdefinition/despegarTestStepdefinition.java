@@ -44,7 +44,7 @@ public class despegarTestStepdefinition extends WebUI {
         }
     }
     @When("llena el formulario de datos personales y confirma su información")
-    public void llenaElFormularioDeDatosPersonalesYConfirmaSuInformación() {
+    public void llenaElFormularioDeDatosPersonalesYConfirmaSuInformacion() {
         DespegarPage despegarPage = new DespegarPage(cliente, super.driver);
         try {
             despegarPage.escogerVuelo();
@@ -57,7 +57,7 @@ public class despegarTestStepdefinition extends WebUI {
         }
     }
     @Then("la página deberá mostrar los datos ingresados")
-    public void laPáginaDeberáMostrarUnMensajeIndicando() {
+    public void laPaginaDeberaMostrarUnMensajeIndicando() {
         try {
             DespegarPage despegarPage = new DespegarPage(cliente, super.driver);
             Assertions.assertEquals("Juan Ivan",despegarPage.checkName());
@@ -99,7 +99,7 @@ public class despegarTestStepdefinition extends WebUI {
         }
     }
     @When("llena los formulario de datos personales y confirma su información")
-    public void llenaLosFormularioDeDatosPersonalesYConfirmaSuInformación() {
+    public void llenaLosFormularioDeDatosPersonalesYConfirmaSuInformacion() {
         DespegarPage despegarPage = new DespegarPage(cliente, super.driver);
         try {
             despegarPage.escogerVuelo();
