@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Assertions;
 public class despegarTestStepdefinition extends WebUI {
 
     private DespegarModel cliente;
-    private static final Logger LOGGER = Logger.getLogger(DespegarCucumber.class);
+    private static final Logger LOGGER = Logger.getLogger(despegarTestStepdefinition.class);
 
     //Scenario 1
     @Given("el cliente se encuentra en la pagina principal")
@@ -45,8 +45,8 @@ public class despegarTestStepdefinition extends WebUI {
     }
     @When("llena el formulario de datos personales y confirma su información")
     public void llenaElFormularioDeDatosPersonalesYConfirmaSuInformacion() {
-        DespegarPage despegarPage = new DespegarPage(cliente, super.driver);
         try {
+            DespegarPage despegarPage = new DespegarPage(cliente, super.driver);
             despegarPage.escogerVuelo();
             despegarPage.fillInformation();
             LOGGER.info("Se escoge vuelo y se llena la informacion ");
@@ -88,8 +88,8 @@ public class despegarTestStepdefinition extends WebUI {
     }
     @When("el cliente selecciona un lugar de destino y las fechas")
     public void elClienteSeleccionaUnLugarDeDestinoYLasFechas() {
-        DespegarPage despegarPage = new DespegarPage(cliente, super.driver);
         try {
+            DespegarPage despegarPage = new DespegarPage(cliente, super.driver);
             despegarPage.flyIdaYVueltaFields();
             LOGGER.info("Se escoge la configuracion ");
         } catch (Exception exception) {
@@ -100,8 +100,8 @@ public class despegarTestStepdefinition extends WebUI {
     }
     @When("llena los formulario de datos personales y confirma su información")
     public void llenaLosFormularioDeDatosPersonalesYConfirmaSuInformacion() {
-        DespegarPage despegarPage = new DespegarPage(cliente, super.driver);
         try {
+            DespegarPage despegarPage = new DespegarPage(cliente, super.driver);
             despegarPage.escogerVuelo();
             despegarPage.fillInformation();
             LOGGER.info("Se escoge vuelo y se llena la informacion ");

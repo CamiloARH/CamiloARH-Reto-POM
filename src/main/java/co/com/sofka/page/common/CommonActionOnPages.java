@@ -25,11 +25,6 @@ public class CommonActionOnPages extends BaseSikulix {
         js.executeScript("window.scrollBy(0,300)");
     }
 
-    protected void scrollUp(){
-        JavascriptExecutor scrollUp = (JavascriptExecutor) driver;
-        scrollUp.executeScript("window.scrollBy(1000,0)");
-    }
-
     protected void scrollTo(By locator){
         JavascriptExecutor jse = (JavascriptExecutor)driver;
         jse.executeScript("arguments[0].scrollIntoView();", driver.findElement(locator));
@@ -46,15 +41,6 @@ public class CommonActionOnPages extends BaseSikulix {
     protected void pressEnter(By locator) {
         driver.findElement(locator).sendKeys(Keys.ENTER);
     }
-
-    protected void pressTab(By locator) {
-        driver.findElement(locator).sendKeys(Keys.TAB);
-    }
-
-    protected void arrowDown(By locator) {
-        driver.findElement(locator).sendKeys(Keys.ARROW_DOWN);
-    }
-
 
     protected void waitToBeClickable(By locator){
         this.explicitWait.until(ExpectedConditions.elementToBeClickable(locator));
@@ -73,11 +59,4 @@ public class CommonActionOnPages extends BaseSikulix {
             return false;
         }
     }
-
-    /*public void clickDay(By locator, int day) {
-        var elements = driver.findElements(locator);
-        var _day = elements.get(day - 1 );
-        _day.click();
-    }*/
-////body/div[@id='component-modals']/div[1]/div[1]/div[2]/div[2]/div[3]/div[10]/div[1]
 }

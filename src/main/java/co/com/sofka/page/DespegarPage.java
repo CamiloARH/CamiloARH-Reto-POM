@@ -32,6 +32,7 @@ public class DespegarPage extends CommonActionOnPages {
     private final By flechaCambioFecha = By.id("ico-arrow-right");
     private final By searchButtonLocator = By.cssSelector("button[class='sbox5-box-button-ovr--3LK5x sbox5-3-btn -secondary -icon -lg']");
     private final By locatorScrollAuxiliar = By.xpath("/html/body/div[3]");
+    private final By waitingBar = By.className("progress-bar-background");
     private final By buyButtonLocator = By.cssSelector("a[tooltip-position='LEFT_BOTTOM']");
     private final By equipajeLoadingLocator = By.className("-white");
     private final By equipajePageLocator = By.className("-show-modal");
@@ -138,6 +139,7 @@ public class DespegarPage extends CommonActionOnPages {
     //General Scenario
     public void escogerVuelo() {
         //Page 2
+        waitUntilInvisibility(waitingBar);
         waitToBeClickable(buyButtonLocator);
         scrollTo(buyButtonLocator);
         click(buyButtonLocator);
