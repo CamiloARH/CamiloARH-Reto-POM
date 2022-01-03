@@ -12,7 +12,7 @@ public class CommonActionOnPages extends BaseSikulix {
 
     protected CommonActionOnPages(WebDriver driver) {
         this.driver = driver;
-        this.explicitWait = new WebDriverWait(driver,10);
+        this.explicitWait = new WebDriverWait(driver,20);
     }
     protected void typeInto(By locator, String value){
         driver.findElement(locator).sendKeys(value);

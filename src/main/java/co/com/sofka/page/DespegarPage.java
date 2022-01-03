@@ -91,7 +91,7 @@ public class DespegarPage extends CommonActionOnPages {
         click(dateLocator);
         scrollTo(locatorScrollAuxiliar);
 
-        for (int i = 0; i <= Integer.parseInt(despegarModel.getFirstMonth()) - 1; i++) {
+        for (int i = 0; i < Integer.parseInt(despegarModel.getFirstMonth()) - 1; i++) {
             click(flechaCambioFecha);
         }
         click(dayToGoLocator);
@@ -122,7 +122,7 @@ public class DespegarPage extends CommonActionOnPages {
         click(dateLocator);
         scrollTo(locatorScrollAuxiliar);
 
-        for (int i = 0; i <= Integer.parseInt(despegarModel.getFirstMonth()) - 1; i++) {
+        for (int i = 0; i < Integer.parseInt(despegarModel.getFirstMonth()) - 1; i++) {
             click(flechaCambioFecha);
         }
         click(dayToGoLocator);
